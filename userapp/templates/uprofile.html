@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+<div id="side-panel" class="dark" data-bg-img="images/bg/bg8.jpg">
+  <div class="side-panel-wrap">
+    <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="pe-7s-close font-36"></i></a></div>
+    <a href="javascript:void(0)"><img alt="logo" src="images/logo-wide.png"></a>
+    <div class="side-panel-nav mt-30">
+      <div class="widget no-border">
+        <nav>
+          <ul class="nav nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a class="tree-toggler nav-header">Pages <i class="fa fa-angle-down"></i></a>
+              <ul class="nav nav-list tree">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>        
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="side-panel-widget mt-30">
+      <div class="widget no-border">
+        <ul>
+          <li class="font-14 mb-5"> <i class="fa fa-phone text-theme-colored"></i> <a href="#" class="text-gray">123-456-789</a> </li>
+          <li class="font-14 mb-5"> <i class="fa fa-clock-o text-theme-colored"></i> Mon-Fri 8:00 to 2:00 </li>
+          <li class="font-14 mb-5"> <i class="fa fa-envelope-o text-theme-colored"></i> <a href="#" class="text-gray">contact@yourdomain.com</a> </li>
+        </ul>      
+      </div>
+      <div class="widget">
+        <ul class="styled-icons icon-dark icon-theme-colored icon-sm">
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+      <p>Copyright &copy;2016 ThemeMascot</p>
+    </div>
+  </div>
+</div>
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+  
+  <header id="header" class="header">
+    {% include 'uheader.html' %}
+  
+  </header>
+  
+  <div class="main-content">
+    {% if request.path == '/' %}
+    {% include 'uslider.html' %}
+    {% else %}
+    {% include 'ubanner.html' %}
+    {% endif %}
+<!-- ======================================== start ====================================================== -->
+ 
+        <section class="">
+          <div class="container">
+            <div class="section-content">
+              <div class="row">
+                <div class="col-sx-12 col-sm-3 col-md-3">
+                  <div class="doctor-thumb">
+                    <img src="{% static 'images/about/profile1.html' %}" alt="">
+                  </div>
+                  <div class="info p-5 bg-black-333">
+                    <div class="mb-3">
+                      <img src="/media/{{u_data.0.u_image}}" style="height: 300px; width: 300px;" alt="">
+                    </div>      
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8">
+                  <form name="editprofile-form" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="icon-box mb-0 p-0">
+                      <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+                        <i class="fa fa-user"></i>
+                      </a>
+                      <h4 class="text-gray pt-10 mt-0 mb-30">Edit Profile</h4>
+                    </div>
+                    <hr>
+                    <p class="text-gray">Update Your Personal and Medical Profile Details Securely.!</p>
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label>Name</label>
+                        <input pattern="[A-Za-z\s]+" title="Please Enter Valid Name."  required  name="u_name" class="form-control" value="{{u_data.0.u_name}}" placeholder="Enter Name" type="text" >
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Contact</label>
+                        <input oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);" pattern="[0-9]{10}" title="Ex.9876543210" required name="u_contact" class="form-control" type="text" value="{{u_data.0.u_contact}}" placeholder="Enter Contact"  readonly>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label>Upload Image</label>
+                        <input type="file" class="form-control" accept="image/*" name="u_image"  />
+                        <input type="hidden" class="form-control"  value="{{u_data.0.u_image}}" name="old_img1"  />
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Date of Birth</label>
+                        <input name="u_dob" class="form-control" value="{{u_data.0.u_dob | date:'Y-m-d'}}" placeholder="Enter Date of Birth" type="date" id="dateInput" required>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label>Upload ID Proof</label> <br>
+                        <a href="/media/{{u_data.0.u_idproof}}" class="badge bg-primary" target="_blank">View</a> <br><br>
+                        <input type="file" class="form-control" name="u_idproof"  />
+                        <input type="hidden" class="form-control" required accept="image/*" value="{{u_data.0.u_idproof}}" name="old_img2"  />
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Upload Income Certificate</label> <br>
+                        <a href="/media/{{u_data.0.u_income}}" class="badge bg-primary" target="_blank">View</a> <br><br>
+                        <input type="file" class="form-control" name="u_income"  />
+                        <input type="hidden" class="form-control" required accept="image/*" value="{{u_data.0.u_income}}" name="old_img3"  />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                      <label class="form-label" >Gender</label>
+                      <select name="u_gender" id="" class="form-control" required>
+                      {% if u_data.0.u_gender == 'Male' %}
+                      <option value="Male" selected>Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                  
+                      {% elif u_data.0.u_gender == 'Female' %}
+                      <option value="Male">Male</option>
+                      <option value="Female" selected>Female</option>
+                      <option value="Other">Other</option>
+                  
+                      {% else %}
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other" selected>Other</option>
+                    
+                      {% endif %}
+                      </select>
+                      </div>
+
+                    <div class="form-group col-md-6">
+                      <label class="form-label">Blood Group</label>
+                      <select name="u_bloodgroup" class="form-control" placeholder="Enter Blood Group" required>
+                    
+                        {% if u_data.0.u_bloodgroup == 'A+' %}
+                          <option value="A+" selected>A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-">B-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                    
+                        {% elif u_data.0.u_bloodgroup == 'A-' %}
+                          <option value="A+">A+</option>
+                          <option value="A-" selected>A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-">B-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                    
+                        {% elif u_data.0.u_bloodgroup == 'B+' %}
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+" selected>B+</option>
+                          <option value="B-">B-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                    
+                        {% elif u_data.0.u_bloodgroup == 'B-' %}
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-" selected>B-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                    
+                        {% elif u_data.0.u_bloodgroup == 'AB+' %}
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-">B-</option>
+                          <option value="AB+" selected>AB+</option>
+                          <option value="AB-">AB-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                    
+                        {% elif u_data.0.u_bloodgroup == 'AB-' %}
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-">B-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-" selected>AB-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                    
+                        {% elif u_data.0.u_bloodgroup == 'O+' %}
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-">B-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                          <option value="O+" selected>O+</option>
+                          <option value="O-">O-</option>
+                    
+                        {% else %}
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-">B-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-" selected>O-</option>
+                        {% endif %}
+                    
+                      </select>
+                    </div>
+                  </div>
+
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label>Smartcard</label>
+                        <input name="u_smartcard" class="form-control" value="{{u_data.0.u_smartcard}}" type="text" readonly >
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Discount</label>
+                        <input name="u_discount" class="form-control" type="text" value="{{u_data.0.u_discount}}"  readonly>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <label>Address</label>
+                        <textarea  class="form-control" placeholder="Enter Address" name="u_address" rows="5" required>{{u_data.0.u_address}}</textarea>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <label>Password</label>
+                        <input type="text" class="form-control" name="u_password" value="{{u_data.0.u_password}}" required placeholder="Enter Password"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-dark btn-lg mt-15" type="submit">Update</button>
+                    </div>
+                  </form>
+                  <script>
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById("dateInput").setAttribute("max", today);
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+  
+</div>
+
+{% include 'uscript.html' %}
+</body>
+</html>

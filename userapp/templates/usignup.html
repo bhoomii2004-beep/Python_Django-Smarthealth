@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+<div id="side-panel" class="dark" data-bg-img="images/bg/bg8.jpg">
+  <div class="side-panel-wrap">
+    <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="pe-7s-close font-36"></i></a></div>
+    <a href="javascript:void(0)"><img alt="logo" src="images/logo-wide.png"></a>
+    <div class="side-panel-nav mt-30">
+      <div class="widget no-border">
+        <nav>
+          <ul class="nav nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a class="tree-toggler nav-header">Pages <i class="fa fa-angle-down"></i></a>
+              <ul class="nav nav-list tree">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>        
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="side-panel-widget mt-30">
+      <div class="widget no-border">
+        <ul>
+          <li class="font-14 mb-5"> <i class="fa fa-phone text-theme-colored"></i> <a href="#" class="text-gray">123-456-789</a> </li>
+          <li class="font-14 mb-5"> <i class="fa fa-clock-o text-theme-colored"></i> Mon-Fri 8:00 to 2:00 </li>
+          <li class="font-14 mb-5"> <i class="fa fa-envelope-o text-theme-colored"></i> <a href="#" class="text-gray">contact@yourdomain.com</a> </li>
+        </ul>      
+      </div>
+      <div class="widget">
+        <ul class="styled-icons icon-dark icon-theme-colored icon-sm">
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+      <p>Copyright &copy;2016 ThemeMascot</p>
+    </div>
+  </div>
+</div>
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+ 
+  
+  <div class="main-content">
+ 
+<!-- ======================================== start ====================================================== -->
+
+<section id="home" class="divider parallax layer-overlay overlay-dark-9" style="background-image: url('static/images/bg/bg1.jpg'); background-position: 50% 0px; height: 1000px;">
+  <div class="display-table">
+    <div class="display-table-cell">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center mb-60"><a href="/" class=""><img alt="" src="{% static 'images/logo1.png' %}" style="height: 100px; width: 300px; border-radius: 10px;"></a></div>
+              <div class="icon-box mb-0 p-0">
+                <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+                  <i class="pe-7s-users"></i>
+                </a>
+                <h4 class="text-theme-colored pt-10 mt-0 mb-30">User Sign Up</h4>
+              </div>
+              <hr>
+            <form class="form-transparent clearfix" enctype="multipart/form-data" method="POST" >
+              {% csrf_token %}
+              {% if request.GET.verify == 'number'   %}
+              <div class="row">
+               
+                <div class="form-group col-md-12">
+                  <label for="form_username_email">Contact Number</label>
+                  <input  name="u_contact" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);" pattern="[0-9]{10}" title="Ex.9876543210" required placeholder="Enter Contact Number" class="form-control" type="text">
+                </div>
+               
+              </div>
+              {% elif  request.GET.verify == 'otp' %}
+              <div class="row">
+               
+                <div class="form-group col-md-12">
+                  <label for="form_username_email">OTP</label>
+                  <input maxlength="4" pattern="[0-9]{4}" title="Ex.9876"  required  name="u_otp" placeholder="Enter OTP" class="form-control" type="text">
+                </div>
+               
+              </div>
+              {% else %}
+
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Name</label>
+                  <input pattern="[A-Za-z\s]+" title="Please Enter Valid Name."  required  name="u_name" placeholder="Enter Name" class="form-control" type="text">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Contact Number</label>
+                  <input  name="u_contact" placeholder="Enter Contact Number" value="{{request.session.contact}}" readonly class="form-control" type="text">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Date of Birth</label>
+                  <input  name="u_dob" placeholder="Enter Date of Birth" class="form-control" type="date" id="dateInput" required>
+                </div>
+              </div>
+ 
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Upload Image</label>
+                  <input required accept="image/*" name="u_image" class="form-control" type="file">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Upload ID Proof</label>
+                  <input required accept="image/*" name="u_idproof"  class="form-control" type="file">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Upload Income Certificate</label>
+                  <input required accept="image/*" name="u_income" class="form-control" type="file">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label>Gender</label>
+                  <select name="u_gender" id="" class="form-control"  required>
+                    <option value="" style="color:black;">--Select--</option>
+                    <option value="Male" style="color:black;">Male</option>
+                    <option value="Female"  style="color:black;">Female</option>
+                    <option value="Other" style="color:black;">Other</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label>Blood Group</label>
+                  <select name="u_bloodgroup" class="form-control" placeholder="Enter Blood Group" type="text" required>
+                    <option value="" style="color:black;">--Select--</option>
+                    <option value="A+" style="color:black;">A+</option>
+                    <option value="A-" style="color:black;">A-</option>
+                    <option value="B+" style="color:black;">B+</option>
+                    <option value="B-" style="color:black;">B-</option>
+                    <option value="AB+" style="color:black;">AB+</option>
+                    <option value="AB-" style="color:black;">AB-</option>
+                    <option value="O+" style="color:black;">O+</option>
+                    <option value="O-" style="color:black;">O-</option>
+                  </select>
+                </div>
+               
+                <div class="form-group col-md-4">
+                  <label>Password</label>
+                  <div class="input-group">
+                    <input id="myInput" name="u_password" placeholder="Enter Password" class="form-control" type="password" required>
+                    <span class="input-group-addon" onclick="myFunction()"> <i id="eyeIcon" class="fa fa-eye"></i></span>
+                  </div>
+                </div>      
+              </div>      
+              
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label>Address</label>
+                  <textarea  class="form-control" placeholder="Enter Address" name="u_address" rows="5" required ></textarea>
+                </div>
+              </div>
+              {% endif %}
+              
+              <div class="clear text-center pt-10">
+                <button class="btn btn-dark btn-lg btn-block no-border" type="submit" data-bg-color="#00acee">Sign Up</button>
+              </div>
+
+              <br>
+              {% if msg != "" %}
+                <div class="alert alert-danger" role="alert">
+                  {{msg}}
+                </div>
+                {% endif %}
+
+                
+              <div class="clear text-center pt-10">
+               
+                Do you already have an account.?  <a class="text-theme-colored font-weight-800 font-15" href="ulogin">Sign In</a>  
+                {% if request.GET.verify == 'number'   %} 
+                | <a class="text-theme-colored font-weight-800 font-15" href="uforgotpassword">Forgot Password</a>  
+                {% elif request.GET.verify == 'otp'   %}
+                | <a class="text-theme-colored font-weight-800 font-15" href="resendotp">Resend OTP</a>
+                {% endif %}
+
+              </div>
+            </form>
+            <script>
+              const today = new Date().toISOString().split('T')[0];
+              document.getElementById("dateInput").setAttribute("max", today);
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+ 
+</div>
+<script>
+  function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+  </script>
+{% include 'uscript.html' %}
+</body>
+</html>

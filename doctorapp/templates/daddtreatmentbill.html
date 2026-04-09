@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <!-- [Head] start -->
+<head>
+{% load static %}  
+{% include 'dhead.html' %}  
+
+</head>
+
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+
+
+<nav class="pc-sidebar">
+  {% include 'dleftbar.html' %}  
+</nav>
+
+
+<!-- [ Header Topbar ] start -->
+<header class="pc-header">
+  {% include 'dheader.html' %}  
+</header>
+<!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+  <div class="page-block">
+    <div class="row align-items-center">
+      
+      <div class="col-md-12">
+        <ul class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="/doctorapp/">Home</a></li>
+          <li class="breadcrumb-item"><a>Treatment Bill Details</a></li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [ breadcrumb ] end -->
+
+        <!-- [ Main Content ] start -->
+       
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>Treatment Bill Details</h5>
+              </div>
+              <div class="card-body" >
+
+
+                <div class="dt-responsive">
+                  <form method ="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <table id="" class="table table-striped table-bordered nowrap">
+                        {% if msg1 == 1 %}
+                        <script>
+                          alert("Bill Is Already Generated..!")
+                          window.location.href="/doctorapp/dbillgenerate";
+                        </script>
+                        {% endif %}
+                        <tbody>
+                          <tr>
+                            <td>User</td>
+                            <td>{{t_data.0.u_name}}</td>
+                          </tr>
+                          <tr>
+                            <td>Contact Number</td>
+                            <td>{{t_data.0.u_contact}}</td>
+                            <input type="hidden" name="u_id" value="{{t_data.0.u_id}}" >
+                          </tr>
+                          <tr>
+                            <td>Title</td>
+                            <td>{{t_data.0.t_title}}</td>
+                          </tr>
+                          <tr>
+                            <td>Date</td>
+                            <td>{{t_data.0.t_date|date:'Y-m-d'}}</td>
+                          </tr>
+                          <tr>
+                            <td>Fees</td>
+                            <td> 
+                              ₹{{t_data.0.t_fees}}
+                              <input type="hidden" class="form-control" name="t_fees" value="{{t_data.0.t_fees}}" placeholder="Enter Smartcard"/>
+                            
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td>Smartcard</td>
+                            <td>
+                              <input type="text" class="form-control" name="u_smartcard"  placeholder="Enter Smartcard"/>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Discount</td>
+                            <td>
+                            <input type="text" class="form-control" name="u_discount" value="{{t_data.0.u_discount}}" readonly placeholder="Enter Discount"/>
+                              
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Total</td>
+                            <td>
+                            <input type="text" class="form-control" name="b_total" value="{{t_data.0.b_total}}" readonly placeholder="Enter Total"/>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Status</td>
+                            <td>
+                            <select name="b_status" id="" class="form-control" required>
+                              <option value="">-- Select --</option>
+                              <option value="Paid">Paid</option>
+                              <option value="Unpaid">Unpaid</option>
+                            </select>
+                            </td>
+                          </tr>
+                      
+                          <tr>
+                            
+                            <td colspan="2">
+                              <button type="submit" style="margin-left: 1000px;" class="btn btn-primary mb-4">Submit</button>
+                            </td>
+                          </tr>
+                          
+                     
+                        </tbody>
+                      </table>
+                      {% if msg != "" %}
+                          <div class="alert alert-danger" role="alert">
+                            {{msg}}
+                          </div>
+                          {% endif %}
+                    </div>
+                  </form>
+                  </div>
+
+              </div>
+            </div>
+            
+          </div>
+      
+        </div>
+ 
+
+</div>
+</div>
+
+<script>
+  function calculateTotal() {
+    let fees = parseFloat(document.getElementsByName("t_fees")[0].value) || 0;
+
+    let discountStr = document.getElementsByName("u_discount")[0].value;
+    let discount = parseFloat(discountStr.replace('%', '')) || 0;
+
+    let total = fees - (fees * discount / 100);
+
+    document.getElementsByName("b_total")[0].value = total.toFixed(2);
+  }
+
+  // Auto run on page load
+  window.onload = calculateTotal;
+
+  // If smartcard or anything changes (optional)
+  document.getElementsByName("u_smartcard")[0].addEventListener("input", calculateTotal);
+</script>
+
+<footer class="pc-footer">
+  {% include 'dfooter.html' %}  
+</footer>
+  
+    {% include 'dscript.html' %}  
+  </body>
+ </html>

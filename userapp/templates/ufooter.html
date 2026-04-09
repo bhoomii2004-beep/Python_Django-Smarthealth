@@ -1,0 +1,153 @@
+{% load static %}
+
+{% if request.path == '/ulogin' or request.path == '/usignup' or request.path == '/dsignup' %}
+
+<footer id="footer" class="footer bg-theme-colored">
+  <div class="container p-20">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="mb-0 text-white">Copyright &copy;2026 Smart Health With RFID Card. All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% else %}
+
+<footer id="footer" class="footer pb-0" data-bg-img="images/footer-bg.png" data-bg-color="#25272e">
+<div class="container pt-90 pb-10">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="widget dark"> <img alt="" src="{% static 'images/logo1.png' %}" style="height: 80px; width: 250px; border-radius: 10px;">
+          <p class="font-12 mt-15 mb-10" style="text-align: justify;">Smart Health is an IoT-based healthcare system that uses RFID cards to manage patient data quickly, securely, and paperlessly for faster medical services.</p>
+          <a class="btn btn-default btn-transparent btn-xs btn-flat mt-5" href="uabout">Read more</a>
+          <ul class="styled-icons icon-dark icon-theme-colored icon-circled icon-sm mt-20">
+            <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://x.com/?lang=en" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3" style="padding-left: 50px;">
+        <div class="widget dark">
+          <h5 class="widget-title line-bottom-theme-colored-2">Quick Links</h5>
+          <div class="latest-posts">
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="">Home</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="udoctor">Doctors</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="uabout">About Us</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="ucontact">Contact Us</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="uterms">Terms & Condition</a></h5>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 col-md-3">
+        <div class="widget dark">
+          <h5 class="widget-title line-bottom-theme-colored-2">Accounts</h5>
+          <div class="latest-posts">
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="usignup?verify=number">User Sign Up</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="dsignup?verify=number">Doctor Sign Up</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="ulogin">User Sign In</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="/doctorapp/dlogin" target="_blank">Doctor Sign In</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><a href="uaboutcard">About RFID</a></h5>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-sm-6 col-md-3">
+        <div class="widget dark">
+          <h5 class="widget-title line-bottom-theme-colored-2">Contact Us</h5>
+          <div class="latest-posts">
+            
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h4 class="post-title mt-0 mb-5"><a>Shree Swaminarayan Institute Of Technology</a></h4>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><i class="pe-7s-call text-theme-colored" style="margin-right: 10px;"></i><a href="tel:079-23969410" >079-23969410</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><i class="pe-7s-mail text-theme-colored" style="margin-right: 10px;"></i><a href="mailto:ssit.director@gmail.com">ssit.director@gmail.com</a></h5>
+              </div>
+            </article>
+            <article class="post media-post clearfix pb-0 mb-10">
+              <a class="post-thumb" href="#"></a>
+              <div class="post-right">
+                <h5 class="post-title mt-0 mb-5"><i class="pe-7s-map-2 text-theme-colored" style="margin-right: 10px;"></i><a>Nr.EDI & Apollo Hospital, S.P Ring Road,Bhat Circle,Ahmedabad Airport To Gandhinagar Highway, Bhat, Gandhinagar - 382 428</a></h5>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="container-fluid bg-theme-colored p-20">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <p class="text-white font-11 m-0">Copyright &copy;2026 Smart Health With RFID Card. All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endif %}
+
+
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>

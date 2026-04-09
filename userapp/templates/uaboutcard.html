@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+  
+  <header id="header" class="header">
+    {% include 'uheader.html' %}
+  
+  </header>
+  
+  <div class="main-content">
+    {% if request.path == '/' %}
+    {% include 'uslider.html' %}
+    {% else %}
+    {% include 'ubanner.html' %}
+    {% endif %}
+<!-- ======================================== start ====================================================== -->
+
+
+
+<section id="about" class="">
+  <div class="container">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="text-uppercase font-weight-600 mt-0 font-28 line-bottom">How To Use RFID</h2>
+          <p style="text-align: justify;">This video guide explains how patients can use their RFID card within the Smart Health System during hospital visits. It demonstrates the simple process of scanning the RFID card at the reception or kiosk to instantly retrieve patient details, medical history, and appointment information. The video also shows how the RFID system helps in faster identification, reduces paperwork, and supports smooth queue management. By following the steps shown in the video, patients and staff can understand how to use the RFID card correctly for quick, secure, and efficient healthcare services.</p>
+          </div>
+        <div class="col-md-6">
+          <div class="video-popup">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qPMltcmko84?si=ex69gAXzgkI-ySAm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>           
+            <a data-lightbox-gallery="youtube-video" title="Video">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="video-popup">
+            <img alt="" src="{% static 'images/about/rfid1.webp' %}" style="height: 400px; width: 550px;">
+            <a title="Image">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h2 class="text-uppercase font-weight-600 mt-0 font-28 line-bottom">RFID technology</h2>
+          <p style="text-align: justify;">RFID (Radio Frequency Identification) is a wireless, contactless identification technology that uses radio waves to automatically identify, track, and manage objects, people, or assets through RFID tags and readers. Each RFID tag contains a microchip and antenna that store unique data. When the tag comes within range of an RFID reader, the information is transmitted instantly to a connected system for real-time processing—without the need for physical contact or line-of-sight scanning.</p>
+
+          <p style="text-align: justify;"> RFID systems typically include three main components: the tag, the reader, and the backend software/database. Tags can be passive (powered by the reader’s signal), active (battery-powered with longer range), or semi-passive. Readers capture the tag data and send it to software that records, analyzes, and displays the information for users.</p>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+  
+</div>
+
+{% include 'uscript.html' %}
+</body>
+</html>

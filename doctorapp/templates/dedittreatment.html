@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <!-- [Head] start -->
+<head>
+{% load static %}  
+{% include 'dhead.html' %}  
+
+</head>
+
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+
+
+<nav class="pc-sidebar">
+  {% include 'dleftbar.html' %}  
+</nav>
+
+
+<!-- [ Header Topbar ] start -->
+<header class="pc-header">
+  {% include 'dheader.html' %}  
+</header>
+<!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+  <div class="page-block">
+    <div class="row align-items-center">
+      
+      <div class="col-md-12">
+        <ul class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="/doctorapp/">Home</a></li>
+          <li class="breadcrumb-item"><a>User Details</a></li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [ breadcrumb ] end -->
+
+        <!-- [ Main Content ] start -->
+       
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>User Details</h5>
+              </div>
+              <div class="card-body" style="overflow-x: auto;">
+
+
+                <div class="dt-responsive">
+                  <form method ="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <table id="" class="table table-striped table-bordered nowrap">
+                        
+                        <tbody>
+                          <tr>
+                            <td>Appointment Date</td>
+                            <td>{{a_data.0.a_date|date:'Y-m-d'}}</td>
+                          </tr>
+                          <tr>
+                            <td>User</td>
+                            <td>{{a_data.0.u_name}}</td>
+                            <input type="hidden" name="u_id" value="{{a_data.0.u_id}}" >
+                          </tr>
+                          <tr>
+                            <td>Title</td>
+                            <td>{{a_data.0.a_title}}</td>
+                          </tr>
+                          <tr>
+                            <td>Symptoms</td>
+                            <td>{{a_data.0.a_symptoms}}</td>
+                          </tr>
+                          <tr>
+                            <td>Remarks</td>
+                            <td> {% if a_data.0.a_remarks == NULL %}
+                              -- {% else %}
+                              {{a_data.0.a_remarks}}
+                              {% endif %}
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td>Treatment Title</td>
+                            <td>
+                              <input type="text" class="form-control" name="t_title" value="{{a_data.0.t_title}}" placeholder="Enter Treatment Title"/>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Treatment</td>
+                            <td>
+                              <textarea  class="form-control" placeholder="Enter Treatment" name="t_treatment" >{{a_data.0.t_treatment}}</textarea>
+                              
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Treatment File</td>
+                            <td>
+                              <a href="/media/{{a_data.0.t_file}}" class="badge bg-danger" target="_blank">View</a> <br><br>
+                              <input type="hidden" class="form-control" name="old_img" value="{{a_data.0.t_file}}" />
+                              <input type="file" class="form-control" name="t_file"  />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Treatment Fees</td>
+                            <td>
+                              <input type="text" class="form-control" name="t_fees" value="{{a_data.0.t_fees}}" placeholder="Enter Treatment Fees"/>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Treatment Date</td>
+                            <td>
+                              <input type="date" class="form-control" name="t_date" value="{{a_data.0.t_date|date:'Y-m-d'}}" placeholder="Treatment Date" style="background-color: #263544;color: white;"/>
+                            </td>
+                          </tr>
+                        
+                          <tr>
+                            
+                            <td colspan="2">
+                              <button type="submit" style="margin-left: 1000px;" class="btn btn-primary mb-4">Submit</button>
+                            </td>
+                          </tr>
+                          
+                     
+                        </tbody>
+                      </table>
+                    </div>
+                  </form>
+                  </div>
+
+              </div>
+            </div>
+            
+          </div>
+      
+        </div>
+ 
+
+</div>
+</div>
+
+ 
+<footer class="pc-footer">
+  {% include 'dfooter.html' %}  
+</footer>
+  
+    {% include 'dscript.html' %}  
+  </body>
+ </html>

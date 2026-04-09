@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <!-- [Head] start -->
+<head>
+{% load static %}  
+{% include 'dhead.html' %}  
+
+</head>
+
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+
+<nav class="pc-sidebar">
+  {% include 'dleftbar.html' %}  
+</nav>
+
+ <!-- [ Header Topbar ] start -->
+<header class="pc-header">
+  {% include 'dheader.html' %}  
+</header>
+<!-- [ Header ] end -->
+
+  <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+  <div class="page-block">
+    <div class="row align-items-center">
+      
+      <div class="col-md-12">
+        <ul class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="/doctorapp/">Home</a></li>
+          <li class="breadcrumb-item"><a>Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [ breadcrumb ] end -->
+
+
+<!-- start -->
+
+  
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5>Profile</h5>
+      </div>
+      <div class="card-body"  style="overflow-x: auto;">
+        <div class="row">
+          <div class="col-md-12">
+            <form method ="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+            
+              <div class="mb-3">
+                <label class="form-label" >Upload Image</label> <br>
+                <img src="/media/{{d_data.0.d_image}}" style="height: 80px; width: 80px;" alt="">
+                <br>
+                <br>
+                <input type="file" class="form-control" name="d_image"  />
+                <input type="hidden" class="form-control" value="{{d_data.0.d_image}}" name="old_img1"  />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Specialization</label>
+                <select name="s_id" class="form-control" >
+                  
+                  {% for s in s_data %}
+                  
+                    {% if s.s_id == d_data.0.s_id %}
+                      <option value="{{s.s_id}}" selected>{{s.s_name}}</option>
+                    {% else %}
+                      <option value="{{s.s_id}}">{{s.s_name}}</option>
+                    {% endif %}
+                    
+                  {% endfor %}
+              
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" >Hospital Name</label>
+                <input type="text" class="form-control" name="d_hospitalname" value="{{d_data.0.d_hospitalname}}" placeholder="Enter Hospital Name"/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" >Name</label>
+                <input type="text" class="form-control" name="d_name" value="{{d_data.0.d_name}}" placeholder="Enter Name"/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" >Contact</label>
+                <input type="text" class="form-control" name="d_contact" value="{{d_data.0.d_contact}}" placeholder="Enter Contact" readonly/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" >Address</label>
+                <textarea  class="form-control" placeholder="Enter Address" name="d_address" >{{d_data.0.d_address}}</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" >Gender</label>
+                <select name="d_gender" id="" class="form-control">
+                  {% if  d_data.0.d_gender == 'Male' %}
+                  <option value="Male" selected>Male</option>
+                  <option value="Female">Female</option>
+                  {% else %}
+                  <option value="Male" >Male</option>
+                  <option value="Female" selected>Female</option>
+                  {% endif %}
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" >Experience</label>
+                <textarea  class="form-control" placeholder="Enter Experience" name="d_experience" >{{d_data.0.d_experience}}</textarea>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" >Upload Certificate</label> <br>
+                <a href="/media/{{d_data.0.d_certificate}}" alt="" class="badge bg-primary" target="_blank">View</a>
+                <br>
+                <br>
+                <input type="file" class="form-control" name="d_certificate"  />
+                <input type="hidden" class="form-control" value="{{d_data.0.d_certificate}}" name="old_img2"  />
+              </div>
+              
+              <div class="mb-3">
+                <label class="form-label" >Fees</label>
+                <input type="text" class="form-control" name="d_fees" value="{{d_data.0.d_fees}}" placeholder="Enter Fees"/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" >Password</label>
+                <input type="text" class="form-control" name="d_password" value="{{d_data.0.d_password}}" placeholder="Enter Password"/>
+              </div>
+              
+              <button type="submit" class="btn btn-primary mb-4">Change</button>
+            </form>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div>
+
+
+
+
+<!-- end -->
+      </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+    <footer class="pc-footer">
+      {% include 'dfooter.html' %}  
+    </footer>
+
+    {% include 'dscript.html' %}  
+  </body>
+ </html>

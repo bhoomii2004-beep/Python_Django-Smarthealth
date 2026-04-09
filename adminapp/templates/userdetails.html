@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <!-- [Head] start -->
+<head>
+{% load static %}  
+{% include 'head.html' %}  
+
+</head>
+
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+
+
+<nav class="pc-sidebar">
+  {% include 'leftbar.html' %}  
+</nav>
+
+
+<!-- [ Header Topbar ] start -->
+<header class="pc-header">
+  {% include 'header.html' %}  
+</header>
+<!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+  <div class="page-block">
+    <div class="row align-items-center">
+      
+      <div class="col-md-12">
+        <ul class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="/adminapp/">Home</a></li>
+          <li class="breadcrumb-item"><a>User Details</a></li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [ breadcrumb ] end -->
+
+        <!-- [ Main Content ] start -->
+       
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>User Details</h5>
+              </div>
+              <div class="card-body" >
+                <div class="dt-responsive">
+                  <form method ="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <table id="" class="table table-striped table-bordered nowrap">
+                        
+                        <tbody>
+                          <tr>
+                            <td>Name</td>
+                            <td>{{u_data.0.u_name}}</td>
+                          </tr>
+                          <tr>
+                            <td>Image</td>
+                            <td>
+                              <a href="/media/{{u_data.0.u_image}}" target="_blank">
+                              <img src="/media/{{u_data.0.u_image}}" style="height: 80px;width: 80px;"  alt="">
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>ID Proof</td>
+                            <td>
+                              <a href="/media/{{u_data.0.u_idproof}}" target="_blank">
+                              <img src="/media/{{u_data.0.u_idproof}}" style="height: 80px;width: 80px;"  alt="">
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Income Certificate</td>
+                            <td>
+                              <a href="/media/{{u_data.0.u_income}}" target="_blank">
+                              <img src="/media/{{u_data.0.u_income}}" style="height: 80px;width: 80px;"  alt="">
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Status</td>
+                            <td>
+                              <select name="u_status" id="" class="form-control">
+                                {% if  u_data.0.u_status == 'Active' %}
+                                <option value="Active" selected>Active</option>
+                                <option value="Deactive">Deactive</option>
+                                {% else %}
+                                <option value="Active" >Active</option>
+                                <option value="Deactive" selected>Deactive</option>
+                                {% endif %}
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Discount</td>
+                            <td>
+                              <input type="text" class="form-control" name="u_discount" value="{{u_data.0.u_discount}}" placeholder="Enter Discount"/>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Smart Card</td>
+                            <td>
+                              <input type="text" class="form-control" name="u_smartcard" value="{{u_data.0.u_smartcard}}" />
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Operation</td>
+                            <td>
+                              <select name="operation" id="" class="form-control">
+                                <option value="Generate">Generate</option>
+                                <option value="Modify">Modify</option>
+                              </select>
+                            </td>
+                          </tr>
+
+
+                          <tr>
+                            <td colspan="2">
+                              <button type="submit" style="margin-left: 1000px;" class="btn btn-primary mb-4">Submit</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    {% if msg != "" %}
+                      <div class="alert alert-danger" role="alert">
+                        {{msg}}
+                      </div>
+                    {% endif %}
+                  </form>
+                  </div>
+
+              </div>
+            </div>
+            
+          </div>
+      
+        </div>
+ 
+
+</div>
+</div>
+
+ 
+<footer class="pc-footer">
+  {% include 'footer.html' %}  
+</footer>
+  
+    {% include 'script.html' %}  
+  </body>
+ </html>

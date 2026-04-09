@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+ 
+  
+  <div class="main-content">
+ 
+<!-- ======================================== start ====================================================== -->
+
+<section id="home" class="divider parallax layer-overlay overlay-dark-9" style="background-image: url('static/images/bg/bg1.jpg'); background-position: 50% 0px; height: 1200px;">
+  <div class="display-table">
+    <div class="display-table-cell">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center mb-60"><a href="/" class=""><img alt="" src="{% static 'images/logo1.png' %}" style="height: 100px; width: 300px; border-radius: 10px;"></a></div>
+              <div class="icon-box mb-0 p-0">
+                <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+                  <i class="pe-7s-users"></i>
+                </a>
+                <h4 class="text-theme-colored pt-10 mt-0 mb-30">Doctor Sign Up</h4>
+              </div>
+              <hr>
+            <form class="form-transparent clearfix" enctype="multipart/form-data" method="POST" >
+              {% csrf_token %}
+              {% if request.GET.verify == 'number'   %}
+              <div class="row">
+               
+                <div class="form-group col-md-12">
+                  <label for="form_username_email">Contact Number</label>
+                  <input oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);" pattern="[0-9]{10}" title="Ex.9876543210" required name="d_contact" placeholder="Enter Contact Number" class="form-control" type="text">
+                </div>
+               
+              </div>
+              {% elif  request.GET.verify == 'otp' %}
+              <div class="row">
+               
+                <div class="form-group col-md-12">
+                  <label for="form_username_email">OTP</label>
+                  <input maxlength="4" pattern="[0-9]{4}" title="Ex.9876"  required  name="u_otp" placeholder="Enter OTP" class="form-control" type="text">
+                </div>
+               
+              </div>
+              {% else %}
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label>Specialization</label>
+                  <select name="s_id" id="" class="form-control"  required>
+                  <option value="" style="color:black;">--Select--</option>
+                  {% for s in s_data %}
+                   <option value="{{s.s_id}}" style="color:black;">{{s.s_name}}</option>
+                  {% endfor %}
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Hospital Name</label>
+                  <input pattern="[A-Za-z\s]+" title="Please Enter Valid Name."  required  name="d_hospitalname" placeholder="Enter Hospital Name" class="form-control" type="text">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="form_username_email"> Name</label>
+                  <input pattern="[A-Za-z\s]+" title="Please Enter Valid Name."  required   name="d_name" placeholder="Enter Name" class="form-control" type="text">
+                </div>
+              </div>
+ 
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Contact Number</label>
+                  <input  name="d_contact" value="{{request.session.dcontact}}" readonly placeholder="Enter Contact Number" class="form-control" type="text">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Upload Image</label>
+                  <input required accept="image/*" name="d_image" class="form-control" type="file">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Upload Certificate</label>
+                  <input required accept="image/*" name="d_certificate" class="form-control" type="file">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label>Gender</label>
+                  <select name="d_gender" id="" class="form-control"  required>
+                    <option value="" style="color:black;">--Select--</option>
+                    <option value="Male" style="color:black;">Male</option>
+                    <option value="Female"  style="color:black;">Female</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="form_username_email">Fees</label>
+                  <input  name="d_fees" placeholder="Enter Fees" class="form-control" type="text" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label>Password</label>
+                  <div class="input-group">
+                    
+                    <input id="myInput" name="d_password" placeholder="Enter Password" class="form-control" type="password" required>
+                    <span class="input-group-addon" onclick="myFunction()"> <i id="eyeIcon" class="fa fa-eye"></i></span>
+                  </div>
+                </div>
+
+
+                
+              </div>      
+              
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label>Experience</label>
+                  <textarea  class="form-control" placeholder="Enter Experience" name="d_experience" rows="5"></textarea>
+                </div>
+              </div>
+              
+              
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label>Address</label>
+                  <textarea  class="form-control" placeholder="Enter Address" name="d_address" rows="5" ></textarea>
+                </div>
+              </div>
+              {% endif %}
+              
+              <div class="clear text-center pt-10">
+                <button class="btn btn-dark btn-lg btn-block no-border" type="submit" data-bg-color="#00acee">Sign Up As Doctor</button>
+              </div>
+              <br>
+              {% if msg != "" %}
+                <div class="alert alert-danger" role="alert">
+                  {{msg}}
+                </div>
+              {% endif %}
+
+                <div class="clear text-center pt-10">
+               
+                  Do you already have an account.?  <a class="text-theme-colored font-weight-800 font-15" href="/doctorapp/dlogin" target="_blank">Sign In</a>  
+                  {% if request.GET.verify == 'number'   %} 
+                  | <a class="text-theme-colored font-weight-800 font-15" href="dforgotpassword">Forgot Password</a>  
+                  {% elif request.GET.verify == 'otp'   %}
+                  | <a class="text-theme-colored font-weight-800 font-15" href="dresendotp">Resend OTP</a>
+                  {% endif %}
+  
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+ 
+</div>
+<script>
+  function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+  </script>
+{% include 'uscript.html' %}
+</body>
+</html>

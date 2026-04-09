@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+<div id="side-panel" class="dark" data-bg-img="images/bg/bg8.jpg">
+  <div class="side-panel-wrap">
+    <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="pe-7s-close font-36"></i></a></div>
+    <a href="javascript:void(0)"><img alt="logo" src="images/logo-wide.png"></a>
+    <div class="side-panel-nav mt-30">
+      <div class="widget no-border">
+        <nav>
+          <ul class="nav nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a class="tree-toggler nav-header">Pages <i class="fa fa-angle-down"></i></a>
+              <ul class="nav nav-list tree">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>        
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="side-panel-widget mt-30">
+      <div class="widget no-border">
+        <ul>
+          <li class="font-14 mb-5"> <i class="fa fa-phone text-theme-colored"></i> <a href="#" class="text-gray">123-456-789</a> </li>
+          <li class="font-14 mb-5"> <i class="fa fa-clock-o text-theme-colored"></i> Mon-Fri 8:00 to 2:00 </li>
+          <li class="font-14 mb-5"> <i class="fa fa-envelope-o text-theme-colored"></i> <a href="#" class="text-gray">contact@yourdomain.com</a> </li>
+        </ul>      
+      </div>
+      <div class="widget">
+        <ul class="styled-icons icon-dark icon-theme-colored icon-sm">
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+      <p>Copyright &copy;2016 ThemeMascot</p>
+    </div>
+  </div>
+</div>
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+  
+  <header id="header" class="header">
+    {% include 'uheader.html' %}
+  
+  </header>
+  
+  <div class="main-content">
+    {% if request.path == '/' %}
+    {% include 'uslider.html' %}
+    {% else %}
+    {% include 'ubanner.html' %}
+    {% endif %}
+<!-- ======================================== start ====================================================== -->
+
+<section>
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="row">
+    
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="text-uppercase mt-0 line-height-1">Our Doctors
+          </h2>
+          <div class="title-icon">
+            <img class="mb-10" src="{% static 'images/title-icon.png' %}" alt="">
+          </div>
+          <br>
+          <div class="widget">
+            <div class="search-form">
+             <form>
+                <div class="input-group">
+                  <input type="text" name="search" id="searchBox" placeholder="Click to Search" class="form-control search-input">
+                  <span class="input-group-btn">
+                  <button class="btn search-button"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </form> 
+            </div>
+          </div>
+        
+        </div>
+        
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="row multi-row-clearfix">
+        {% for row in d_data %}
+        <div class="col-sm-6 col-md-3 sm-text-center" style="margin-bottom: 50px;" id="result">
+          <div class="team maxwidth400">
+            <div class="thumb"><img class="img-fullwidth" src="/media/{{ row.d_image }}" style="height: 263px; width: 263px;" alt=""></div>
+            <div class="content border-1px p-15 bg-light clearfix">
+              <h4 class="name text-theme-color-2 mt-0">{{ row.d_name }}</h4>
+              <p>{{row.s_name}}</p>
+              <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
+                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://x.com/?lang=en" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.google.com/" target="_blank"><i class="fa fa-google"></i></a></li>
+              </ul>
+              <a class="btn btn-theme-colored btn-sm pull-right flip" href="udocdetails?d_id={{row.d_id}}">view details</a>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <p style="font-size: 25px; color: red;font-weight: 600; text-align: center;" > No Record Found..! </p>
+        {% endfor %}
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("searchBox").addEventListener("input", function () {
+      let value = this.value.trim();
+  
+      if (value.length >= 3) {
+          
+          window.location.href = "udoctor?search=" + encodeURIComponent(value);
+      }
+  });
+  </script>
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+  
+</div>
+
+{% include 'uscript.html' %}
+</body>
+</html>

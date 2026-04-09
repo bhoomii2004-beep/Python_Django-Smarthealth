@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+  
+  <header id="header" class="header">
+    {% include 'uheader.html' %}
+  
+  </header>
+  
+  <div class="main-content">
+    {% if request.path == '/' %}
+    {% include 'uslider.html' %}
+    {% else %}
+    {% include 'ubanner.html' %}
+    {% endif %}
+<!-- ======================================== start ====================================================== -->
+
+
+    <!-- Section:about-->
+    <section class="">
+      <div class="container">
+        <div class="section-content">
+          <div class="row">
+          <div class="col-md-4">
+            <div class="border-1px p-5 pt-5 pb-5 bg-black-333">
+              <img class="img-fullwidth" alt="" src="{% static 'images/team/lg9.jpg' %} " style="height: 450px;">
+
+            </div>
+          </div>
+          <div class="col-md-8">
+            <h2 class="title line-bottom line-height-1 mt-0 mt-sm-30"><span>About <span class="text-theme-colored">Smart Health</span></span></h2>
+            <p class="mb-20">We are dedicated to providing quality healthcare services with compassion and care. Our team ensures timely diagnosis, effective treatment, and continuous support for every patient. Your health and well-being remain our top priority, and we strive to deliver reliable and efficient medical services at all times. </p>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4 pb-sm-20">
+                <h4 class="title mt-0 mb-15">Smart Appointment</h4>
+                <div class="image-box-thum">
+                  <img class="img-fullwidth" alt="" src="{% static 'images/about/a1.jpg' %}">
+                </div>
+                <div class="image-box-details pt-20 pb-sm-20">
+                  <p class="desc mb-10">Easily schedule doctor appointments with our quick and user-friendly system.</p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 pb-sm-20">
+                <h4 class="title mt-0 mb-15">24/7 Patient Support</h4>
+                <div class="image-box-thum">
+                  <img class="img-fullwidth" alt="" src="{% static 'images/about/a2.jpg' %}">
+                </div>
+                <div class="image-box-details pt-20 pb-sm-20">
+                  <p class="desc mb-10">Receive reliable assistance and healthcare guidance whenever you need it.</p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 pb-sm-20">
+                <h4 class="title mt-0 mb-15">Digital Health Records</h4>
+                <div class="image-box-thum">
+                  <img class="img-fullwidth" alt="" src="{% static 'images/about/a3.jpg' %}">
+                </div>
+                <div class="image-box-details pt-20">
+                  <p class="desc mb-10">Securely store and access your medical history anytime, anywhere.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Services -->
+    <section id="services" class="bg-silver-light">
+      <div class="container pb-40">
+        <div class="section-title text-center">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h2 class="text-uppercase mt-0 line-height-1">Services</h2>
+              <div class="title-icon">
+                <img class="mb-10" src="{% static 'images/title-icon.png' %}" alt="">
+              </div>
+              <p>We provide smart and efficient healthcare services using advanced RFID technology to ensure quick access, better management, and improved patient care.!</p>
+            </div>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="text-center mb-30 p-10">
+                <i class="fa fa-user-md font-weight-600 text-theme-colored font-38"></i>
+                <h4 class="font-weight-600 mt-20">Real-Time Doctor Availability</h4>
+                <p>Check doctor schedules and availability in real-time for better appointment planning.</p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="text-center mb-sm-30 p-10">
+                <i class="flaticon-medical-hospital16 font-weight-600 text-theme-colored font-38"></i>
+                <h4 class="font-weight-600 mt-20">Smart RFID Card Access</h4>
+                <p>Use your RFID card for quick and secure access to all hospital services.</p>
+              </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="text-center mb-30 p-10">
+                <i class="flaticon-medical-stethoscope10 text-theme-colored font-weight-600 text-theme-colored font-40"></i>
+                <h4 class="font-weight-600 mt-20">Real-Time Patient Data Access</h4>
+                <p>Access updated patient information instantly for faster and better decision-making.</p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="text-center mb-sm-30 p-10">
+                <i class="flaticon-medical-hospital17 font-weight-600 text-theme-colored font-38"></i>
+                <h4 class="font-weight-600 mt-20">Automated Queue Management System</h4>
+                <p>Reduce waiting time with an organized and automated patient queue system.</p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="text-center mb-30 p-10">
+                <i class="fa fa-medkit font-weight-600 text-theme-colored font-38"></i>
+                <h4 class="font-weight-600 mt-20">Centralized Patient Data Management</h4>
+                <p>Efficiently manage and update patient information with a centralized digital system.</p>              
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="text-center mb-sm-30 p-10">
+                <i class="flaticon-medical-tablets9 text-theme-colored font-weight-600 text-theme-colored font-40"></i>
+                <h4 class="font-weight-600 mt-20">Medical History Tracking & Management</h4>
+                <p>Easily access and manage complete patient medical history and treatment details anytime.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider: Funfact -->
+    <section class="divider parallax layer-overlay overlay-theme-colored-9" data-bg-img="images/bg/bg2.jpg" data-parallax-ratio="0.7">
+      <div class="container pt-60 pb-60">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+            <div class="funfact text-center">
+              <i class="pe-7s-smile mt-5 text-white"></i>
+              <h2 data-animation-duration="2000" class="animate-number text-white font-42 font-weight-500">100+</h2>
+              <h5 class="text-white text-uppercase font-weight-600">Happy Patients</h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+            <div class="funfact text-center">
+              <i class="pe-7s-rocket mt-5 text-white"></i>
+              <h2 data-animation-duration="2000" class="animate-number text-white font-42 font-weight-500">65+</h2>
+              <h5 class="text-white text-uppercase font-weight-600">Our Services</h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+            <div class="funfact text-center">
+              <i class="pe-7s-add-user mt-5 text-white"></i>
+              <h2 data-animation-duration="2000"  class="animate-number text-white font-42 font-weight-500">25+</h2>
+              <h5 class="text-white text-uppercase font-weight-600">Our Doctors</h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+            <div class="funfact text-center">
+              <i class="pe-7s-global mt-5 text-white"></i>
+              <h2 data-animation-duration="2000"  class="animate-number text-white font-42 font-weight-500">98+</h2>
+              <h5 class="text-white text-uppercase font-weight-600">Appointment Booked</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: team -->
+    <section id="team">
+      <div class="container">
+        <div class="section-title text-center">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h2 class="text-uppercase mt-0 line-height-1">Our Team</h2>
+              <div class="title-icon">
+                <img class="mb-10" src="{% static 'images/title-icon.png' %}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mtli-row-clearfix">
+          <div class="col-md-12">
+            <div class="owl-carousel-4col">
+              <div class="item">
+              
+              </div>
+              <div class="item">
+                <div class="team-members border-bottom-theme-color-2px text-center maxwidth400">
+                  <div class="team-thumb">
+                    <img class="img-fullwidth" alt="" src="{% static 'images/team/Bhoomi11.png' %}" style="height: 370px;">
+                    <div class="team-overlay"></div>
+                  </div>
+                  <div class="team-details bg-silver-light pt-10 pb-10">
+                    <h4 class="text-uppercase font-weight-600 m-5">Prajapati Bhoomika</h4>
+                    <h6 class="text-theme-colored font-15 font-weight-400 mt-0">MCA , SSIT</h6>                    
+                    <ul class="styled-icons icon-theme-colored icon-dark icon-circled icon-sm">
+                      <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="https://x.com/?lang=en" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                      <li><a href="https://www.google.com/" target="_blank"><i class="fa fa-google"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="team-members border-bottom-theme-color-2px text-center maxwidth400">
+                  <div class="team-thumb">
+                    <img class="img-fullwidth" alt="" src="{% static 'images/team/ansh1.png' %}" style="height: 370px;">
+                    <div class="team-overlay"></div>
+                  </div>
+                  <div class="team-details bg-silver-light pt-10 pb-10">
+                    <h4 class="text-uppercase font-weight-600 m-5">Patel Ansh</h4>
+                    <h6 class="text-theme-colored font-15 font-weight-400 mt-0">MCA , SSIT</h6>                    
+                    <ul class="styled-icons icon-theme-colored icon-dark icon-circled icon-sm">
+                      <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="https://x.com/?lang=en" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                      <li><a href="https://www.google.com/" target="_blank"><i class="fa fa-google"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- end main-content -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+ 
+</div>
+
+{% include 'uscript.html' %}
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% load static %}
+
+
+<section class="inner-header divider parallax layer-overlay overlay-white-8" data-bg-img="static/images/bg/bg6.jpg">
+    <div class="container pt-60 pb-60">
+      <!-- Section Content -->
+      <div class="section-content">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            {% if request.path == '/ucontact' %}
+            <h2 class="title">Contact Us</h2>
+            {% elif request.path == '/uabout' %}
+            <h2 class="title">About Us</h2>
+            {% elif request.path == '/uabout' %}
+            <h2 class="title">About</h2>
+            {% elif request.path == '/uprofile' %}
+            <h2 class="title">Profile</h2>
+            {% elif request.path == '/umyappointment' %}
+            <h2 class="title">My Appointment</h2>
+            {% elif request.path == '/umytreatment' %}
+            <h2 class="title">My Treatment</h2>
+            {% elif request.path == '/udoctor' %}
+            <h2 class="title">Doctors</h2>
+            {% elif request.path == '/udocdetails' %}
+            <h2 class="title">Doctor Details</h2>
+            {% elif request.path == '/uappointmentbill' %}
+            <h2 class="title">Appointment Bill</h2>
+            {% elif request.path == '/utreatmentbill' %}
+            <h2 class="title">Treatment Bill</h2>
+            {% elif request.path == '/uterms' %}
+            <h2 class="title">Terms & Condition</h2>
+            {% elif request.path == '/uaboutcard' %}
+            <h2 class="title">About RFID</h2>
+            {% endif %}
+            <ol class="breadcrumb text-center text-black mt-10">
+              <li><a href="/">Home</a></li>
+              {% if request.path == '/ucontact' %}
+              <li class="active text-theme-colored">Contact Us</li>
+              {% elif request.path == '/uabout' %}
+              <li class="active text-theme-colored">About Us</li>
+              {% elif request.path == '/uprofile' %}
+              <li class="active text-theme-colored">Profile</li>
+              {% elif request.path == '/umyappointment' %}
+              <li class="active text-theme-colored">My Appointment</li>
+              {% elif request.path == '/umytreatment' %}
+              <li class="active text-theme-colored">My Treatment</li>
+              {% elif request.path == '/udoctor' %}
+              <li class="active text-theme-colored">Doctors</li>
+              {% elif request.path == '/udocdetails' %}
+              <li class="active text-theme-colored">Doctor Details</li>
+              {% elif request.path == '/uappointmentbill' %}
+              <li class="active text-theme-colored">Appointment Bill</li>
+              {% elif request.path == '/utreatmentbill' %}
+              <li class="active text-theme-colored">Treatment Bill</li>
+              {% elif request.path == '/uterms' %}
+              <li class="active text-theme-colored">Terms & Condition</li>
+              {% elif request.path == '/uaboutcard' %}
+              <li class="active text-theme-colored">About RFID</li>
+              {% endif %}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

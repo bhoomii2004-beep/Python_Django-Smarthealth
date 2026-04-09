@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+<style>
+  .badge {
+    --bs-badge-padding-x: .8em;
+    --bs-badge-padding-y: .45em;
+    --bs-badge-font-size: .75em;
+    --bs-badge-font-weight: 500;
+    --bs-badge-color: #ffffff;
+    --bs-badge-border-radius: 6px;
+    display: inline-block;
+    padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+    font-size: var(--bs-badge-font-size);
+    font-weight: var(--bs-badge-font-weight);
+    line-height: 1;
+    color: var(--bs-badge-color);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: var(--bs-badge-border-radius);
+}
+
+.bg-warning {
+    --bs-bg-opacity: 1;
+    background-color: #4caf50 !important;
+}
+.bg-success {
+    --bs-bg-opacity: 1;
+    background-color: #00bcd4 !important;
+}
+.bg-danger {
+    --bs-bg-opacity: 1;
+    background-color: #db2222 !important;
+}
+
+</style>
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+<div id="side-panel" class="dark" data-bg-img="images/bg/bg8.jpg">
+  <div class="side-panel-wrap">
+    <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="pe-7s-close font-36"></i></a></div>
+    <a href="javascript:void(0)"><img alt="logo" src="images/logo-wide.png"></a>
+    <div class="side-panel-nav mt-30">
+      <div class="widget no-border">
+        <nav>
+          <ul class="nav nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a class="tree-toggler nav-header">Pages <i class="fa fa-angle-down"></i></a>
+              <ul class="nav nav-list tree">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>        
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="side-panel-widget mt-30">
+      <div class="widget no-border">
+        <ul>
+          <li class="font-14 mb-5"> <i class="fa fa-phone text-theme-colored"></i> <a href="#" class="text-gray">123-456-789</a> </li>
+          <li class="font-14 mb-5"> <i class="fa fa-clock-o text-theme-colored"></i> Mon-Fri 8:00 to 2:00 </li>
+          <li class="font-14 mb-5"> <i class="fa fa-envelope-o text-theme-colored"></i> <a href="#" class="text-gray">contact@yourdomain.com</a> </li>
+        </ul>      
+      </div>
+      <div class="widget">
+        <ul class="styled-icons icon-dark icon-theme-colored icon-sm">
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+      <p>Copyright &copy;2016 ThemeMascot</p>
+    </div>
+  </div>
+</div>
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+  
+  <header id="header" class="header">
+    {% include 'uheader.html' %}
+  
+  </header>
+  
+  <div class="main-content">
+    {% if request.path == '/' %}
+    {% include 'uslider.html' %}
+    {% else %}
+    {% include 'ubanner.html' %}
+    {% endif %}
+<!-- ======================================== start ====================================================== -->
+
+<section>
+  <div class="container">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered tbl-shopping-cart">
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>ID</th>
+                  <th>Doctor</th>
+                  <th>Specialization</th>
+                  <th>Title</th>
+                  <th>Symptoms</th>
+                  <th>Date</th>
+                  <th>Fees</th>
+                  <th>Remarks</th>
+                  <th>Status</th>
+                  <th>Created Date</th>
+                  <th>Updated Date</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in a_data %}
+                <tr class="cart_item">
+                  <td class="product-remove">
+                    {% if row.a_status == 'Pending' %} 
+                    <a title="Cancel" class="remove" href="umyappointment?a_id={{row.a_id}}" title="Delete" onclick="return confirm('Are You Sure Want To Delete.?')">
+                      <i class="fa fa-times font-15 text-gray"></i>
+                    </a>
+                    {% elif row.a_status == 'Approved' %} 
+                    <a title="Show Treatment" class="remove" href="umytreatment?a_id={{row.a_id}}" >
+                      <i class="fa fa-pencil font-15 text-gray"></i>
+                    </a>
+                    {% else %}
+                    -
+                    {% endif %}
+                  </td>
+                  <td class="product-thumbnail">{{ forloop.counter }}</td>
+                  <td class="product-name">{{row.d_name}} <br>
+                    <span class="badge bg-success">
+                    {{row.d_contact}}
+                    </span>
+                  </td>
+                  <td class="product-name">{{row.s_name}}</td>
+                  <td class="product-name">{{row.a_title}}</td>
+                  <td class="product-name" title="{{row.a_symptoms}}">
+                    {{ row.a_symptoms|slice:":20" }}{% if row.a_symptoms|length > 20 %}...{% endif %}
+                  </td>
+                  <td class="product-name">{{row.a_date|date:'Y-m-d'}}</td>
+                  <td class="product-name">₹{{row.a_fees}}</td>
+                  <td class="product-quantity">
+                    {% if row.a_remarks == NULL %}
+                    --
+                    {% else %}
+                    {{row.a_remarks}}
+                    {% endif %}
+                  </td>
+                  <td class="product-price">
+                  <span class="badge {% if row.a_status == 'Approved' %} bg-warning {% elif row.a_status == 'Pending' %} bg-success {% else %}bg-danger {% endif %} ">                  
+                    {{row.a_status}}
+                  </span> 
+                  </td>
+                  <td class="product-quantity">{{row.a_cdate|date:'Y-m-d H:i:s'}}</td>
+                  <td class="product-thumbnail">{{row.a_udate|date:'Y-m-d H:i:s'}}</td>
+                    
+                </tr>
+                {% empty %}
+                <tr>
+                  <td colspan="12" style="text-align: center;"> <span style="color: red;">No Record Found..!</span> </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+  
+</div>
+
+{% include 'uscript.html' %}
+</body>
+</html>

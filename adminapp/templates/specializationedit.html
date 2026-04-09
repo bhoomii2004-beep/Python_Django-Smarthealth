@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <!-- [Head] start -->
+<head>
+{% load static %}  
+{% include 'head.html' %}  
+
+</head>
+
+  <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+
+
+<nav class="pc-sidebar">
+  {% include 'leftbar.html' %}  
+</nav>
+
+
+<!-- [ Header Topbar ] start -->
+<header class="pc-header">
+  {% include 'header.html' %}  
+</header>
+<!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+  <div class="page-block">
+    <div class="row align-items-center">
+      
+      <div class="col-md-12">
+        <ul class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="/adminapp/">Home</a></li>
+          <li class="breadcrumb-item"><a>Specialization</a></li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [ breadcrumb ] end -->
+
+        <!-- [ Main Content ] start -->
+       
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>Edit Specialization</h5>
+              </div>
+              <div class="card-body" style="overflow-x: auto;">
+                <div class="row">
+                  <div class="col-md-12">
+                    <form method ="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="mb-3">
+                        <label class="form-label" >Name</label>
+                        <input type="text" class="form-control" name="s_name" value="{{s_data.0.s_name}}" placeholder="Enter Name"/>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label" >Image</label> <br>
+                        <img src="/media/{{s_data.0.s_image}}" style="height: 80px; width: 80px;" alt="" >
+                        <br>
+                        <input type="file" class="form-control" name="s_image"  />
+                        <input type="hidden" class="form-control" value="{{s_data.0.s_image}}" name="old_img"  />
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label" >Status</label>
+                        <select name="s_status" id="" class="form-control">
+                          {% if  s_data.0.s_status == 'Active' %}
+                          <option value="Active" selected>Active</option>
+                          <option value="Deactive">Deactive</option>
+                          {% else %}
+                          <option value="Active" >Active</option>
+                          <option value="Deactive" selected>Deactive</option>
+                          {% endif %}
+                        </select>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary mb-4">Submit</button>
+                    </form>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            
+          </div>
+      
+        </div>
+    
+
+        <!-- [ Main Content ] end -->
+         
+ 
+
+</div>
+</div>
+<footer class="pc-footer">
+  {% include 'footer.html' %}  
+</footer>
+  
+    {% include 'script.html' %}  
+  </body>
+ </html>

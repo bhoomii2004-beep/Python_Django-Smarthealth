@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+<div id="side-panel" class="dark" data-bg-img="images/bg/bg8.jpg">
+  <div class="side-panel-wrap">
+    <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="pe-7s-close font-36"></i></a></div>
+    <a href="javascript:void(0)"><img alt="logo" src="images/logo-wide.png"></a>
+    <div class="side-panel-nav mt-30">
+      <div class="widget no-border">
+        <nav>
+          <ul class="nav nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a class="tree-toggler nav-header">Pages <i class="fa fa-angle-down"></i></a>
+              <ul class="nav nav-list tree">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>        
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="side-panel-widget mt-30">
+      <div class="widget no-border">
+        <ul>
+          <li class="font-14 mb-5"> <i class="fa fa-phone text-theme-colored"></i> <a href="#" class="text-gray">123-456-789</a> </li>
+          <li class="font-14 mb-5"> <i class="fa fa-clock-o text-theme-colored"></i> Mon-Fri 8:00 to 2:00 </li>
+          <li class="font-14 mb-5"> <i class="fa fa-envelope-o text-theme-colored"></i> <a href="#" class="text-gray">contact@yourdomain.com</a> </li>
+        </ul>      
+      </div>
+      <div class="widget">
+        <ul class="styled-icons icon-dark icon-theme-colored icon-sm">
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+      <p>Copyright &copy;2016 ThemeMascot</p>
+    </div>
+  </div>
+</div>
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+  
+  <header id="header" class="header">
+    {% include 'uheader.html' %}
+  
+  </header>
+  
+  <div class="main-content">
+    {% if request.path == '/' %}
+    {% include 'uslider.html' %}
+    {% else %}
+    {% include 'ubanner.html' %}
+    {% endif %}
+<!-- ======================================== start ====================================================== -->
+
+
+   <!-- Section: Doctor Details -->
+   <section class="">
+    <div class="container">
+      <div class="section-content">
+        <div class="row">
+          <div class="col-sx-12 col-sm-4 col-md-4">
+            <div class="doctor-thumb">
+              <img src="/media/{{ d_data.0.d_image }}" style="height: 430px;" width="360px" alt="">
+            </div>
+            <ul class="styled-icons icon-gray text-center mt-15 mb-15">
+              <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://x.com/?lang=en" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://in.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="https://www.google.com/" target="_blank"><i class="fa fa-google"></i></a></li>
+            </ul>
+            {% if request.session.uid == None %}
+            <a class="btn btn-lg btn-dark btn-theme-colored" style="width: 100%;" href="ulogin">Book Appointment</a>
+              {% endif %}
+            
+          </div>
+          
+          <div class="col-xs-12 col-sm-8 col-md-8 pl-20 pl-sm-15">
+            <div>
+              <h3 class="mt-0">{{d_data.0.d_name}}</h3>
+              <h5 class="text-theme-colored">{{d_data.0.d_hospitalname}}</h5>
+              <p>{{d_data.0.d_address}}</p>
+              <hr>
+              <h4 class="mt-30 text-uppercase">Experience</h4>
+              <p class="">{{d_data.0.d_experience}}</p>
+            </div>
+            <div class="mt-30">
+              <h4 class="text-uppercase">Specialties</h4>
+              <h5>Specialtiy: <span class="text-theme-colored">{{d_data.0.s_name}}</span></h5>
+              <h4 class="mt-30 text-uppercase">Additional Information</h4>
+              <ul class="list theme-colored angle-double-right m-0" style="display: flex;">
+                <li class="mt-0" style="width: 25%;"><strong>Contact Number</strong><br>+91-{{d_data.0.d_contact}}</li>
+                <li  class="mt-0" style="width: 22%;"><strong>Gender</strong><br>{{d_data.0.d_gender}} </li>
+                <li class="mt-0" style="width: 22%;"><strong>Certificate</strong><br><a href="/media/{{d_data.0.d_certificate}}" class="badge bg-danger" target="_blank">View</a></li>
+                <li class="mt-0" style="width: 22%;"><strong>Fees</strong><br>₹{{d_data.0.d_fees}} </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% if request.session.uid != None %}
+  <section id="Appoinment" data-bg-img="{% static 'images/pattern/p4.png' %}">
+    <div class="container pt-50 pb-0">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="p-10">
+            <!-- Reservation Form Start-->
+            <form class="reservation-form" method="post" ><h2 class="mt-0 line-bottom line-height-1 text-black mb-30">Make An Appoinment<span class="text-theme-colored font-weight-600"> Now!</span></h2>
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group mb-30">
+                    <label>Title Name</label>
+                    <input placeholder=" Enter Title Name" type="text"  name="a_title" required class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group mb-30">
+                    <label>Reservation Date</label>
+                    <input placeholder="Reservation Date" type="date"  name="a_date" id="dateInput" class="form-control" required>
+                  </div>
+                  <div class="form-group mb-30"> 
+                    <input type="hidden"  name="s_id" value="{{d_data.0.s_id}}" class="form-control" >
+                  </div>
+                  <div class="form-group mb-30">
+                    <input type="hidden"  name="d_fees" value="{{d_data.0.d_fees}}" class="form-control" >
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group mb-30">
+                    <textarea  name="a_symptoms" class="form-control required"  placeholder="Enter Symptoms" rows="5" required></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group mb-0 mt-0">
+                    <input name="form_botcheck" class="form-control" type="hidden" value="">
+                    <button type="submit" class="btn btn-theme-colored btn-lg btn-block" data-loading-text="Please wait..."> Book Appoinment</button>
+                  </div>
+                </div>
+              </div>
+              <br>
+              {% if msg != "" %}
+                <div class="alert alert-danger" role="alert">
+                  {{msg}}
+                </div>
+                {% endif %}
+            </form>
+            <!-- Reservation Form End-->
+            <script>
+              const today = new Date().toISOString().split('T')[0];
+              document.getElementById("dateInput").setAttribute("min", today);
+            </script>
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="{% static 'images/about/team.png' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+</div>
+
+
+
+
+
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+  
+</div>
+
+{% include 'uscript.html' %}
+</body>
+</html>

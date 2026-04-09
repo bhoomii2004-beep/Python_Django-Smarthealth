@@ -1,0 +1,88 @@
+{% load static %}
+
+
+<div class="header-top bg-theme-colored sm-text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="widget no-border m-0">
+            <ul class="styled-icons icon-dark icon-theme-colored icon-sm sm-text-center">
+              <li><a href="https://www.facebook.com/"  target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://x.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://www.google.com/" target="_blank"><i class="fa fa-google"></i></a></li>
+              <li><a href="https://in.linkedin.com/" target="_blank"> <i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="widget no-border m-0">
+            <ul class="list-inline pull-right flip sm-pull-none sm-text-center mt-5">
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-white"></i> <a class="text-white" href="#">079-23969410</a> </li>
+              <li class="text-white m-0 pl-10 pr-10"> <i class="fa fa-clock-o text-white"></i> Mon-Sat 8:00 AM TO 8:00 PM </li>
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-white"></i> <a class="text-white" href="#">ssit.director@gmail.com</a> </li>
+              <li class="sm-display-block mt-sm-10 mb-sm-10">
+                <!-- Modal: Appointment Starts -->
+                
+                <a class="bg-light p-5 text-theme-colored font-11 " href="udoctor">Make an Appointment</a>
+                <!-- Modal: Appointment End -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-nav">
+    <div class="header-nav-wrapper navbar-scrolltofixed bg-lightest">
+      <div class="container">
+        <nav id="menuzord-right" class="menuzord blue bg-lightest">
+          <a class="menuzord-brand pull-left flip" href="/">
+            <img src="{% static 'images/logo1.png' %}" alt="" style="max-height: 70px; width: 150px; margin-top: -13px;">
+          </a>
+        {% if request.session.uid == None %}
+          <ul class="menuzord-menu">
+
+            <li><a href="/"> Home </a></li>
+            <li><a href="udoctor">Doctors</a></li>
+            <li><a href="#">Sign Up</a>
+              <ul class="dropdown">
+                <li><a href="usignup?verify=number">User</a> </li> 
+                <li><a href="dsignup?verify=number">Doctor</a> </li> 
+              </ul>
+            </li>
+
+            <li><a href="#">Sign In</a>
+              <ul class="dropdown">
+                <li><a href="ulogin">User</a> </li> 
+                <li><a href="/doctorapp/dlogin" target="_blank">Doctor</a> </li> 
+              </ul>
+            </li>
+            <li><a href="uabout">About Us </a></li>
+            <li><a href="uaboutcard">About RFID </a></li>
+            <li><a href="ucontact">Contact Us </a></li>
+            
+            
+          
+          </ul>
+          {% else %}
+          <ul class="menuzord-menu">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="udoctor">Doctors</a></li>
+            <li><a href="uprofile">Profile</a></li>
+            <li><a href="umyappointment">My Appointment</a></li>
+            <li><a href="#">Bill</a>
+              <ul class="dropdown">
+                <li><a href="uappointmentbill">Appointment</a> </li> 
+                <li><a href="utreatmentbill">Treatment</a> </li> 
+              </ul>
+            </li>
+            <li><a href="ucontact">Contact Us </a></li>
+            <li><a href="uabout">About Us </a></li>
+            <li><a href="uaboutcard">About RFID </a></li>
+            <li><a href="ulogout">Logout </a></li>
+          </ul>
+          {% endif %}
+        </nav>
+      </div>
+    </div>
+  </div>

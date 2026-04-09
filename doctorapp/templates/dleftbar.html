@@ -1,0 +1,120 @@
+{% load static %}
+
+<div class="navbar-wrapper">
+    <div class="m-header" style="background-color: white; height: 100px; width: 90%; border-radius: 10px; margin: 10px;">
+      <!-- <a href="/adminapp/" class="b-brand text-primary"> -->
+        <img src="{% static 'assets/images/logo1.png' %}" class="img-fluid" style="height: 100px;" alt="logo" />
+      <!-- </a> -->
+    </div>
+    <div class="navbar-content" style="max-height: 80vh; overflow-y: auto;">
+      <ul class="pc-navbar">
+        <li class="pc-item pc-caption">
+  <label data-i18n="Navigation">Navigation</label>
+</li>
+
+<li class="pc-item">
+  <a href="/doctorapp/" class="pc-link">
+    <span class="pc-micon"> <i class="ti ti-home"></i> </span><span class="pc-mtext" data-i18n="Dashboard">Dashboard</span>
+  </a>
+</li> 
+ 
+<li class="pc-item">
+  <a href="/doctorapp/dprofile" class="pc-link">
+    <span class="pc-micon"> <i class="ti ti-user-square-rounded"></i> </span><span class="pc-mtext" data-i18n="Profile">Profile</span>
+  </a>
+</li> 
+
+<li class="pc-item">
+  <a href="/doctorapp/dbillgenerate" class="pc-link">
+    <span class="pc-micon"> <i class="ti ti-list-details"></i> </span><span class="pc-mtext" data-i18n=" Bill Generate"> Bill Generate</span>
+  </a>
+</li> 
+
+<li class="pc-item pc-hasmenu">
+  <a href="#!" class="pc-link">
+    <span class="pc-micon">
+      <i class="ti ti-clipboard-list"></i>
+    </span>
+    <span class="pc-mtext" data-i18n="Appointment">Appointment</span>
+    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
+    
+  </a>
+  <ul class="pc-submenu">
+    <li class="pc-item"><a class="pc-link" href="/doctorapp/dpendingappointment" data-i18n="Pending">Pending</a></li>
+    <li class="pc-item"><a class="pc-link" href="/doctorapp/dapprovedappointment" data-i18n="Approved">Approved</a></li>
+    <li class="pc-item"><a class="pc-link" href="/doctorapp/dcancelappointment" data-i18n="Cancel">Cancel</a></li>
+  </ul>
+</li>
+
+<li class="pc-item">
+  <a href="/doctorapp/dtreatment" class="pc-link">
+    <span class="pc-micon"> <i class="ti ti-stethoscope"></i> </span><span class="pc-mtext" data-i18n="Treatment">Treatment</span>
+  </a>
+</li>
+
+<li class="pc-item pc-hasmenu">
+  <a href="#!" class="pc-link">
+    <span class="pc-micon">
+      <i class="ti ti-receipt-rupee"></i>
+    </span>
+    <span class="pc-mtext" data-i18n="Bill">bill</span>
+    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
+    
+  </a>
+  <ul class="pc-submenu">
+    <li class="pc-item"><a class="pc-link" href="/doctorapp/dappointmentbill" data-i18n="Appointment">Appointment</a></li>
+    <li class="pc-item"><a class="pc-link" href="/doctorapp/dtreatmentbill" data-i18n="Treatment">Treatment</a></li>
+  </ul>
+</li>
+
+<li class="pc-item">
+  <a href="/doctorapp/duser" class="pc-link">
+    <span class="pc-micon"> <i class="ti ti-user-square-rounded"></i> </span><span class="pc-mtext" data-i18n="User">User</span>
+  </a>
+</li>
+
+<li class="pc-item">
+  <a href="/doctorapp/ddoctor" class="pc-link">
+    <span class="pc-micon"> <i class="ti ti-square-letter-d"></i> </span><span class="pc-mtext" data-i18n="Doctor">Doctor</span>
+  </a>
+</li>
+
+<li class="pc-item">
+  <a href="/doctorapp/dspecialization" class="pc-link">
+    <span class="pc-micon"> <i class="ti ti-filter-2-spark"></i> </span><span class="pc-mtext" data-i18n="Specialization">Specialization</span>
+  </a>
+</li>
+
+<li class="pc-item">
+  <a href="/doctorapp/dfeedback" class="pc-link">
+    <span class="pc-micon"> <i class="ti ti-message-dots"></i> </span><span class="pc-mtext" data-i18n="Feedback">Feedback</span>
+  </a>
+</li>
+
+
+<li class="pc-item pc-hasmenu">
+  <a href="#!" class="pc-link">
+    <span class="pc-micon">
+      <i class="ti ti-stack-2"></i>
+    </span>
+    <span class="pc-mtext" data-i18n="Report">Report</span>
+    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
+    
+  </a>
+  <ul class="pc-submenu">
+    <li class="pc-item"><a class="pc-link" href="/doctorapp/dappointmentreport" data-i18n="Appointment">Appointment</a></li>
+    <li class="pc-item"><a class="pc-link" href="/doctorapp/dtreatmentreport" data-i18n="Treatment">Treatment</a></li>
+    <li class="pc-item"><a class="pc-link" href="/doctorapp/dappointmentbillreport" data-i18n="Appointment Bill">Appointment Bill</a></li>
+    <li class="pc-item"><a class="pc-link" href="/doctorapp/dtreatmentbillreport" data-i18n="Treatment Bill">Treatment Bill</a></li>
+
+  </ul>
+</li>
+
+<li class="pc-item">
+  <a href="/doctorapp/dlogout" class="pc-link">
+    <span class="pc-micon"> <i class="ti ti-logout"></i> </span><span class="pc-mtext" data-i18n="Logout">Logout</span>
+  </a>
+</li>
+      </ul>
+    </div>
+  </div>

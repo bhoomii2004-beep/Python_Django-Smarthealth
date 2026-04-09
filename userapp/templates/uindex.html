@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+  
+  <header id="header" class="header">
+    {% include 'uheader.html' %}
+  
+  </header>
+  
+  <div class="main-content">
+    {% if request.path == '/' %}
+    {% include 'uslider.html' %}
+    {% else %}
+    {% include 'ubanner.html' %}
+    {% endif %}
+<!-- ======================================== start ====================================================== -->
+
+
+<section id="about" class="">
+  <div class="container">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="text-uppercase font-weight-600 mt-0 font-28 line-bottom">Smart Health With RFID card</h2>
+          <h5 class="text-theme-colored">One Card, Instant Patient Details, Better Healthcare Experience.!</h5>
+          <p style="text-align: justify;">The Smart Health System with RFID Card is an IoT-based healthcare solution designed to make patient management faster, smarter, and more accurate. Each patient is provided with a unique RFID card that securely stores identification and medical information. When the card is scanned at the hospital, patient details, medical history, and appointments are retrieved instantly. This reduces paperwork, saves time, minimizes errors, and improves the overall efficiency of hospital services. The system ensures quick patient identification, smooth record handling, and better healthcare delivery through smart technology.</p>
+          <a class="btn btn-theme-colored btn-flat btn-lg mt-10 mb-sm-30" href="uabout">Know More →</a>
+        </div>
+        <div class="col-md-6">
+            <img alt="" src="{% static 'images/about/a1.png' %}" style="height: 400px; width: 500px; padding-left: 80px;">
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="departments">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="text-uppercase mt-0 line-height-1">Our Specialization</h2>
+          <div class="title-icon">
+            <img class="mb-10" src="{% static 'images/title-icon.png' %}" alt="">
+          </div>
+          <p>Expert doctors across multiple fields delivering accurate diagnosis and complete patient care.</p>
+        </div>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="row">
+        {% for row in s_data %}
+        <div class="col-xs-12 col-sm-6 col-md-3 mb-30">
+          <img class="img-fullwidth" alt="" src="/media/{{row.s_image}}" style="height: 200px;">
+          <h4>{{row.s_name}}</h4>
+          <p>Our {{row.s_name}} doctors deliver expert care with accurate diagnosis and effective treatment for complete patient well-being.</p>
+          <a href="udoctor?s_id={{row.s_id}}" class="btn-read-more text-theme-colored">Read more</a>
+        </div>
+       {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class=" bg-lighter">
+  <div class="container pb-20">
+    <div class="section-title text-center">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="text-uppercase mt-0 line-height-1">Emergency Care</h2>
+          <div class="title-icon">
+            <img class="mb-10" src="{% static 'images/title-icon.png' %}" alt="">
+          </div>
+          <p>Immediate medical attention provided by skilled professionals to handle critical and life-threatening situations with speed and precision.!</p>
+        </div>
+      </div>
+    </div>
+    <div class="section-content">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="icon-box left media p-0"> <a href="#" class="media-left pull-left"><i class="flaticon-medical-ambulance14 text-theme-colored"></i></a>
+            <div class="media-body">
+              <h5 class="media-heading heading">Emergency Care</h5>
+              <p>Quick access to complete patient details helps doctors provide timely life-saving treatment during critical situations.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="icon-box left media p-0"> <a href="#" class="media-left pull-left"><i class="flaticon-medical-illness text-theme-colored"></i></a>
+            <div class="media-body">
+              <h5 class="media-heading heading">Operation Theatre</h5>
+              <p>Clear patient information helps doctors plan surgeries carefully and maintain safety throughout the procedure.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="icon-box left media p-0"> <a href="#" class="media-left pull-left"><i class="flaticon-medical-stethoscope10 text-theme-colored"></i></a>
+            <div class="media-body">
+              <h5 class="media-heading heading">Outdoor Checkup</h5>
+              <p>Easy and fast record access ensures smooth consultation with less waiting time for patients.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="icon-box left media p-0"> <a href="#" class="media-left pull-left"><i class="flaticon-medical-medical51 text-theme-colored"></i></a>
+            <div class="media-body">
+              <h5 class="media-heading heading">Cancer Service</h5>
+              <p>Well-maintained patient information helps specialists provide timely and focused treatment with ongoing care.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="icon-box left media p-0"> <a href="#" class="media-left pull-left"><i class="flaticon-medical-hospital35 text-theme-colored"></i></a>
+            <div class="media-body">
+              <h5 class="media-heading heading">Blood Test</h5>
+              <p>Organized patient records make lab testing faster and easier for better treatment decisions.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="icon-box left media p-0"> <a href="#" class="media-left pull-left"><i class="flaticon-medical-tablets9 text-theme-colored"></i></a>
+            <div class="media-body">
+              <h5 class="media-heading heading">Pharmacy</h5>
+              <p>Verified prescriptions and patient details help provide the right medicines safely and efficiently.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="divider parallax layer-overlay overlay-white-9" data-bg-img="{% static  'images/bg/bg4.jpg' %}" data-parallax-ratio="0.7">>
+  <div class="container pb-40">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-7">
+          <h3 class="title line-bottom line-height-1 mt-0 mb-30"><i class="fa fa-camera-retro text-theme-colored mr-10"></i>Our <span class="text-theme-colored">Gallery</span></h3>
+          <div class="gallery-isotope grid-4 gutter-small clearfix" data-lightbox="gallery">
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm1.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg1.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm2.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg2.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm3.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg3.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm4.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg4.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm5.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg5.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm6.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg6.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm7.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg7.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm8.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg8.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm9.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg9.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm10.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg10.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm11.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg11.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+            
+            <!-- Portfolio Item Start -->
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="{% static 'images/gallery/gallery-sm12.jpg' %}" class="img-fullwidth">
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="{% static 'images/gallery/gallery-lg12.jpg' %}"  data-lightbox-gallery="gallery"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio Item End -->
+          </div>
+        </div>
+        <div class="col-md-5">
+          <h3 class="title line-height-1 line-bottom mt-0 mt-sm-30 mb-30"><i class="fa fa-thumb-tack text-theme-colored mr-10"></i>Clients Say</h3>
+          <div class="testimonial style1 owl-carousel-1col">
+            {% for row in f_data %}
+            <div class="item">
+              <div class="comment border-radius-15px">
+                <p>{{row.f_message}}</p>
+              </div>
+              <div class="content mt-20">
+                <div class="thumb pull-right">
+                  <img class="img-circle" alt="" src="{% static 'images/user.webp' %}">
+                </div>
+                <div class="patient-details text-right pull-right mr-20 mt-10">
+                  <h5 class="">{{row.f_name}}</h5>
+                  <h6 class="title">Patient.</h6>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+	const params = new URLSearchParams(window.location.search);
+	if (params.get("alert") === "1") {
+		alert("Password Sent In Your SMS");
+		window.history.replaceState({}, document.title, window.location.pathname);
+	}
+</script>
+
+
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+  
+</div>
+
+{% include 'uscript.html' %}
+</body>
+</html>

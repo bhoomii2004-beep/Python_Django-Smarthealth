@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  {% load static %}
+<head>
+{% include 'uhead.html' %}
+</head>
+<body class="" data-bg-img="images/pattern/p2.png">
+<div class="body-overlay"></div>
+
+<div id="wrapper" class="clearfix">
+  {% include 'upreloader.html' %}
+  
+  <header id="header" class="header">
+    {% include 'uheader.html' %}
+  
+  </header>
+  
+  <div class="main-content">
+    {% if request.path == '/' %}
+    {% include 'uslider.html' %}
+    {% else %}
+    {% include 'ubanner.html' %}
+    {% endif %}
+<!-- ======================================== start ====================================================== -->
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-push-1">
+        <div id="section-one" class="mb-50">
+          <h3>1. Acceptance of Terms</h3>
+          <hr>
+          <p class="mb-20">By accessing and using the Smart Health System, patients, doctors, and hospital staff agree to comply with these Terms and Conditions for secure, ethical, and proper usage of the platform. Continued use of the system confirms acceptance of all policies, rules, and guidelines mentioned here, and these terms apply to every individual who interacts with the system in any capacity.
+          </p>
+       </div>
+        <div id="section-two" class="mb-50">
+          <h3>2. Use of RFID Card</h3>
+          <hr>
+          <p class="mb-20">Each patient is issued a unique RFID card that is directly linked to their digital health record within the system and must be carried during every hospital visit for identification and service access. Users are responsible for keeping the card safe and secure at all times, and any loss, theft, damage, or misuse must be reported immediately to the hospital administration to prevent unauthorized access to personal data.          
+          </p>  
+         </div>
+        <div id="section-three" class="mb-50">
+          <h3>3. User Responsibilities</h3>
+          <hr>
+          <p class="mb-20">Users must ensure that all personal and medical information entered into the system is accurate, complete, and regularly updated to avoid any issues in treatment or hospital services. The system must be used strictly for healthcare and hospital-related purposes, and sharing login credentials or allowing unauthorized persons to access the account is strictly prohibited.
+         </p>
+        </div>
+        <div id="section-four" class="mb-50">
+          <h3>4. Data Privacy and Security</h3>
+          <hr>
+          <p class="mb-20">All patient data and medical records are stored digitally with advanced security measures, authentication controls, and restricted access to ensure confidentiality and protection from unauthorized use. The hospital ensures that this data is accessed only by authorized personnel when required for treatment, diagnosis, or administrative purposes.
+          </p>
+        </div>
+        <div id="section-five" class="mb-50">
+          <h3>5. Appointment and Queue Management</h3>
+          <hr>
+          <p class="mb-20">Appointments within the system are scheduled according to doctor availability and hospital workflow to maintain an organized process for patient visits. In unavoidable situations such as emergencies or technical issues, the hospital reserves the right to reschedule appointments, and the automated queue system helps reduce waiting time and manage patient flow efficiently.
+          </p>        
+        </div>
+
+        <div id="section-one" class="mb-50">
+          <h3>6. Medical Records Access</h3>
+          <hr>
+          <p class="mb-20">Access to patient medical records is limited strictly to authorized doctors and hospital staff to maintain the accuracy and reliability of treatment information. Patients may be allowed to view their records where permitted by hospital policy, but they are not allowed to edit or modify any medical data stored in the system.
+          </p> 
+        </div>
+        <div id="section-two" class="mb-50">
+          <h3>7. System Availability</h3>
+          <hr>
+          <p class="mb-20">The hospital strives to keep the Smart Health System running smoothly and continuously for better service delivery, but temporary downtime may occur due to maintenance, software updates, or technical problems. In such cases, necessary efforts will be made to restore services as quickly as possible without compromising patient care.
+          </p>  
+         </div>
+        <div id="section-three" class="mb-50">
+          <h3>8. Password & Account Security</h3>
+          <hr>
+          <p class="mb-20">Users are fully responsible for maintaining the confidentiality of their login credentials and all activities performed under their account within the system. Strong passwords should be created and changed periodically, and any suspicious or unauthorized activity must be reported immediately to prevent unauthorized access to personal and medical records.
+          </p>
+        </div>
+        <div id="section-four" class="mb-50">
+          <h3>9. Limitation of Liability</h3>
+          <hr>
+          <p class="mb-20">The hospital will not be held responsible for issues or losses arising due to incorrect or incomplete information provided by users or misuse of RFID cards, passwords, or system access. Responsibility for such actions lies with the user involved in the misuse or negligence.</p>
+        </div>
+        <div id="section-four" class="mb-50">
+          <h3>10. User Consent</h3>
+          <hr>
+          <p class="mb-20">By registering and using the Smart Health System, users give their consent for their personal and medical information to be stored and processed digitally for medical treatment and hospital administration. This consent supports faster, more efficient, and paperless healthcare services.
+          </p>  
+          </div>
+        <div id="section-five" class="mb-50">
+          <h3>11. Contact Information</h3>
+          <hr>
+          <p class="mb-20">For any queries, concerns, or support related to these Terms and Conditions or the use of the system, users should contact the hospital administration or support team during working hours for proper guidance and assistance.
+          </p>
+        </div>
+        <div id="section-five" class="mb-50">
+          <h3>12. Changes to Terms</h3>
+          <hr>
+          <p class="mb-20">These Terms and Conditions may be updated or modified at any time to improve system security, functionality, and service quality. Users are advised to review the terms regularly, and continued use of the system after updates implies acceptance of the revised terms.</p>        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ======================================== end ====================================================== -->
+
+  </div>
+  
+   {% include 'ufooter.html' %}
+  
+</div>
+
+{% include 'uscript.html' %}
+</body>
+</html>
